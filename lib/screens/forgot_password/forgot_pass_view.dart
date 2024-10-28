@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'dart:io';
-import '../../components/app_background.dart';
 import '../../components/app_buttons.dart';
-import '../../components/rounded_loader.dart';
 import '../../utils/my_theme.dart';
 import '../../utils/my_utils.dart';
-import '../../utils/routes.dart';
-import 'login_controller.dart';
+import 'forgot_pass_controller.dart';
 
-class LoginView extends GetView<LoginViewController> {
-  const LoginView({Key? key}) : super(key: key);
+class ForgotPassView extends GetView<ForgotPassController> {
+  const ForgotPassView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,22 +21,22 @@ class LoginView extends GetView<LoginViewController> {
           padding: const EdgeInsets.only(left: 20.0, right: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Center(child: Image.asset("assets/images/RealProAlliance 1.png")),
               SizedBox(height: 30),
               Text(
-                "Login",
+                "Forgot Password?",
                 style: MyTheme.regularTextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: Get.height * 0.035,
                     color: MyTheme.myBlueDark),
               ),
               Text(
-                "Let's Login",
+                "Enter your registered email ID to reset the password",
                 style: MyTheme.regularTextStyle(
                   fontWeight: FontWeight.w400,
-                  fontSize: Get.height * 0.022,
+                  fontSize: Get.height * 0.016,
                 ),
               ),
               SizedBox(height: Get.height * 0.02),
@@ -56,7 +52,7 @@ class LoginView extends GetView<LoginViewController> {
                             40) // Correct way to add a border
                         ),
                     child: TextFormField(
-                      controller: controller.usernameController,
+                      // controller: controller.usernameController,
                       decoration: textBoxDecorationn(
                           'User Name', Icon(Icons.email_outlined)),
                       textInputAction: TextInputAction.next,
@@ -95,37 +91,6 @@ class LoginView extends GetView<LoginViewController> {
                     ),
                   ),
                   SizedBox(height: Get.height * .02),
-                  Obx(
-                    () => Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(
-                              40) // Correct way to add a border
-                          ),
-                      child: TextFormField(
-                        obscureText: !controller.showPassword.value,
-                        controller: controller.passwordController,
-                        // focusNode: controller.pswdCtrlfocusNode,
-                        decoration: textBoxDecoration(
-                          'Password',
-                          IconButton(
-                            onPressed: () {
-                              controller.togglePasswordVisibility();
-                            },
-                            icon: Icon(controller.showPassword.value
-                                ? Icons.visibility
-                                : Icons.visibility_off),
-                          ),
-                          Icon(
-                            Icons.lock_open_outlined,
-                            color: MyTheme.myBlueDark,
-                          ),
-                        ),
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: Get.height * .02),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -149,7 +114,7 @@ class LoginView extends GetView<LoginViewController> {
                 child: MAButton(
                   text: 'Login',
                   buttonPress: () async {
-                    Get.toNamed(Routes.forgotpass);
+                    // controller.doLogin();
                   },
                   // color: Colors.white,
                   // colors:MyTheme.myBlueDark,

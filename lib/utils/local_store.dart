@@ -1,6 +1,7 @@
 import 'package:get_storage/get_storage.dart';
 
 import '../app.dart';
+import '../models/login_model.dart';
 
 
 abstract class LocalStore {
@@ -55,13 +56,14 @@ abstract class LocalStore {
 
 class FetchDataFromLocalStore {
   Future<void> userData() async {
-    // App.user = EmployeeDetails(
-    //   id: LocalStore.getInt('user_id'),
-    //   name: LocalStore.getString('name'),
-    //   email: LocalStore.getString('email'),
-    //   apiToken: LocalStore.getString('token'),
-    // );
-    // App.token = LocalStore.getString('token') ?? '';
-    // print('App.token: ${App.token}');
+    App.user = CustomerDetails(
+      id: LocalStore.getInt('user_id'),
+      username: LocalStore.getString('name'),
+      email: LocalStore.getString('email'),
+      password: LocalStore.getString('password'),
+      apiToken: LocalStore.getString('token'),
+    );
+    App.token = LocalStore.getString('token') ?? '';
+    print('App.token: ${App.token}');
   }
 }

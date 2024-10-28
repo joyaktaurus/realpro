@@ -20,7 +20,7 @@ void main() async{
         unselectedWidgetColor: Colors.blue,
       ),
       initialRoute: Routes.splash,
-    //  getPages: Routes.routes,
+      getPages: Routes.routes,
     ),
   );
 }

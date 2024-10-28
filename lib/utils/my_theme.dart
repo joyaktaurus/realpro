@@ -14,8 +14,8 @@ class MyTheme {
         FontWeight? fontWeight,
         double? letterSpacing}) {
     final textScaleFactor = WidgetsBinding.instance?.window.textScaleFactor ?? 1.0;
-    return GoogleFonts.inter(
-      color: color ?? Colors.white,
+    return GoogleFonts.poppins(
+      color: color ?? Colors.black,
       fontSize: fontSize != null ? fontSize / textScaleFactor : 15,
       fontWeight: fontWeight ?? FontWeight.normal,
       letterSpacing: letterSpacing,
